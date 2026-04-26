@@ -17,15 +17,19 @@ class DetailPage extends StatefulWidget {
 
 class _DetailPageState extends State<DetailPage> {
   int qty = 1;
+  final GlobalKey imageKey = GlobalKey();
+  final GlobalKey cartKey = GlobalKey();
+  @override
+  void dispose() {
+    noteController.dispose();
+    super.dispose();
+  }
+
   TextEditingController noteController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final food = widget.food;
-    final GlobalKey imageKey = GlobalKey();
-    final GlobalKey cartKey = GlobalKey();
-    TextEditingController noteController = TextEditingController();
 
-    // 🔥 TARUH DI SINI (DALAM CLASS)
     void animateToCart() {
       final overlay = Overlay.of(context);
 
